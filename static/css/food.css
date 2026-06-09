@@ -1,0 +1,257 @@
+/* Universal Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: url('../images/foods.jpg');
+    background-color: #dae9dd00;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    animation: fadeInBackground 2s ease-in-out;
+  }
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    height: 70px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    animation: slideInFromTop 0.5s ease-in-out;
+}
+label.logo {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 30px;
+    animation: moveInFromLeft 1s ease-out forwards, glow 1.5s infinite alternate;
+}
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    margin: 0 10px;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+nav ul li:nth-child(1) { animation-delay: 0.2s; }
+nav ul li:nth-child(2) { animation-delay: 0.4s; }
+nav ul li:nth-child(3) { animation-delay: 0.6s; }
+nav ul li:nth-child(4) { animation-delay: 0.8s; }
+nav ul li:nth-child(5) { animation-delay: 1s; }
+nav ul li a {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease, letter-spacing 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: transform 0.5s ease;
+    transform: translateX(-50%) scaleX(0);
+    z-index: 0;
+}
+nav ul li a:hover::before {
+    transform: translateX(-50%) scaleX(1);
+}
+nav ul li a:hover {
+    background: #13690d;
+    transform: scale(1.1);
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 952px) {
+    label.logo {
+        font-size: 24px;
+        padding-left: 20px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+@media (max-width: 858px) {
+    .checkbtn {
+        display: block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(208, 207, 190, 0.9);
+        top: 70px;
+        left: 0;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+}
+a:hover {
+    background: #13690db7;
+    transition: 0.5s;
+}
+
+/* Food Order Container Styles */
+.food-order-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in, bounceIn 1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+.food-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+.food-image:hover {
+    transform: scale(1.05);
+}
+.food-details {
+    padding: 20px;
+}
+.price-container {
+    margin-top: 20px;
+}
+.price-container p {
+    margin-bottom: 10px;
+}
+.price, .tax, .total {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Button Styles */
+/* Button Styles */
+.book-button, .cancel-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 5px;
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite, shadowPulse 1s infinite; /* Added animations */
+}
+
+.book-button {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.book-button:hover {
+    background-color: #45a049;
+    animation: none; /* Stop animation on hover */
+    transform: scale(1.1) rotate(5deg); /* Scale and rotate on hover */
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f;
+    animation: none; /* Stop animation on hover */
+    transform: scale(1.1) rotate(-5deg); /* Scale and rotate on hover */
+}
+
+/* Animation Keyframes */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shadowPulse {
+    0% { box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+@keyframes slideInFromTop {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes moveInFromLeft {
+    0% { transform: translateX(-50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 15px rgba(255, 255, 255, 1); }
+}
+@keyframes fadeInBackground {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirvana Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/contacts.css')}}">
+</head>
+<body>
+    <nav>
+        <label class="logo">NIRVANA RESTRO</label>
+        <ul>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li><a href="{{url_for('services')}}">Services</a></li>
+            <li><a href="{{url_for('menu')}}">Menu</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
+            <li><a class="cont" href="{{url_for('contacts')}}">Contacts</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <br>
+    
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-form">
+                <h2>Send us a message</h2>
+                <form action="{{ url_for('submit_form') }}" method="POST">
+
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div> 
+            <br>
+            <br> <br><br>
+            <div class="contact-info">
+                <h2>Get in touch</h2>
+                <p>If you are looking for a perfect place to have a date, family dinner or simply wish to hang out with your friends, we highly suggest you visit Nirvana Restro in Huzurabad HO, Huzurabad. Not only are they known for their good quality of food, but also for their services such as Counter Service,table slot booking , Home Delivery.</p>
+                <ul class="contact-details">
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:9390756877">9390756877</a></li>
+                    <li><i class="fas fa-globe-americas"></i> <a href="#">www.nirvanarestaurant.com</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:nirvanarestro@gmail.com">nirvanarestro@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i>Huzurabad</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d121283.90649436574!2d79.31312855763112!3d18.20431301507454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3a3335473ffd73f1%3A0xaa6c1dde86d6acad!2sHuzurabad%20club%20Shopping%20Complex%2C%20Opp%3A%20Court%20Bldg%2C%20Karimnagar%20Rd%2C%20Huzurabad%2C%20Telangana%20505468!3m2!1d18.2043306!2d79.39553029999999!5e0!3m2!1sen!2sin!4v1725867274678!5m2!1sen!2sin" 
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

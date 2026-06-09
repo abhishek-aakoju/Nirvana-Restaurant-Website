@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Page</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/food.css')}}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <label class="logo">NIRVANA RESTRO</label>
+            <ul>
+                <li><a class="active" href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('services')}}">Services</a></li>
+                <li><a href="{{url_for('menu')}}">Menu</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="{{url_for('contacts')}}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="food-order-container">
+        <div class="food-image">
+            <img src="{{url_for('static',filename='images/tikka.jpg')}}" alt="Food Image">
+        </div>
+        <div class="food-details">
+            <h2>Paneer Tikka</h2>
+            <p>Paneer tikka is a popular Indian appetizer made from marinated paneer (Indian cottage cheese) cubes, grilled to perfection. It’s often served with a side of mint chutney and garnished with onions and bell peppers.
+
+               </p>
+            <div class="price-container">
+                <p>Price: <span class="price">&#8377;160</span></p>
+                <p>Tax (10%): <span class="tax">&#8377;16</span></p>
+                <p>Total: <span class="total">&#8377;176</span></p>
+            </div>
+            <button class="book-button" onclick="window.location.href='{{ url_for('payment') }}';">Book Now</button>
+            <button class="cancel-button" onclick="window.location.href='{{ url_for('home') }}';">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>

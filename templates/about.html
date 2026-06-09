@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRVANA RESTAURANT</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/about.css')}}">
+   <!-- <script src="https://kit.fontawesome.com/yourcode.js"></script>-->
+</head>
+<body>
+        <div class="container">
+            <nav>
+                <label class="logo">NIRVANA RESTRO</label>
+                <ul>
+                    <li><a href="{{ url_for('home')}}">Home</a></li>
+                    <li><a href="{{ url_for('services')}}">Services</a></li>
+                    <li><a href="{{ url_for('menu')}}">Menu</a></li>
+                    <li><a class="active" href="{{ url_for('about')}}">About</a></li>
+                    <li><a href="{{ url_for('contacts')}}">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    <main>
+        <br>
+        <br>
+        <h1>ABOUT OUR RESTAURANT</h1>
+        <p class="about-text">"Bringing Flavors to Life"</p>
+
+      <div class="team-container">
+          <div class="team-member">
+               <img src="{{url_for('static',filename='images/chef.jpg')}}"alt="Team Member 1">
+             <h3>About Our Chef</h3>
+              <p>Passionate about using locally sourced, fresh ingredients to craft innovative yet traditional dishes.<br>
+                Believes in the power of food to bring people together and tell a story with each plate.<br>
+                Known for their dedication to culinary excellence, inspiring both colleagues and guests alike.</p>
+            </div>
+          <div class="team-member">
+            <img src="{{url_for('static',filename='images/nirvana.jpg')}}"alt="Team Member 1">
+               <h3>Nirvana Restaurant</h3>
+                <p>Restaurants in huzurabad provide various cuisisnes with the aesthestic seating arangements and the best servies <br>
+                    if u are looking for a perfect place to have a dinner or simply we suggest to visit our Nirvana restro</p>
+          </div>
+           <div class="team-member">
+               <img src="{{url_for('static',filename='images/food1.jpg')}}"alt="Team Member 3">
+               <h3>Our Famous Dish</h3>
+
+               <p>Biryani is a fragrant rice dish made with basmati rice and a blend of aromatic spices.<br>
+                It originated in the Indian subcontinent and is now popular in many countries across South Asia and the Middle East.<br>
+                It is typically served with raita (yogurt sauce), boiled eggs, and sometimes salad or pickle for added flavor.</p>
+          </div>
+      </div>
+      </main>
+      </body>
+      </html>

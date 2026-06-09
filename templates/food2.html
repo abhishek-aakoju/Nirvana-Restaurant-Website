@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/food.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <label class="logo">NIRVANA RESTRO</label>
+            <ul>
+                <li><a class="active" href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contacts') }}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="food-order-container">
+        <div class="food-image">
+            <!-- Fixed the img tag to properly close the alt attribute -->
+            <img src="{{ url_for('static', filename='images/soup3.jpg') }}" alt="Chicken Soup">
+        </div>
+        <div class="food-details">
+            <h2>Chicken Soup</h2>
+            <p>Chicken soup is a warm, comforting dish made by simmering chicken with vegetables. It's known for its soothing qualities, especially when you're feeling unwell. Enjoy it as a flavorful broth or with noodles.</p>
+            <div class="price-container">
+                <p>Price: <span class="price">&#8377;120</span></p>
+                <p>Tax (10%): <span class="tax">&#8377;12</span></p>
+                <p>Total: <span class="total">&#8377;132</span></p>
+            </div>
+            <!-- Changed button to use a form for better integration with Flask -->
+            <form action="{{ url_for('payment') }}" method="get">
+                <button class="book-button" onclick="window.location.href='{{ url_for('payment') }}';">Book Now</button>
+                <button class="cancel-button" onclick="window.location.href='{{ url_for('home') }}';">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

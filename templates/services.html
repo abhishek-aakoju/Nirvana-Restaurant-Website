@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRVANA RESTAURANT</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/services.css')}}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <label class="logo">NIRVANA RESTRO</label>
+            <ul>
+                <li><a class="active" href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('services')}}">Services</a></li>
+                <li><a href="{{url_for('menu')}}">Menu</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="{{url_for('contacts')}}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section id="services">
+        <br>
+        <div class="service">
+            <h3>Table Booking</h3>
+            <p>Book a table online to enjoy a wonderful dining experience.</p>
+            <button><a href="{{url_for('orders')}}"> Book Now </a></button>
+        </div>
+        <br>
+        <div class="service">
+            <h3>Home Delivery</h3>
+            <p>Order your favorite dishes and get them delivered to your doorstep.</p>
+            <button><a href="{{url_for('menu')}}"> Book Now </a></button>
+        </div>
+    </section>   
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan QR Code </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.936);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .qr-code {
+            margin: 20px 0;
+        }
+        .qr-code img {
+            width: 200px;
+            height: 200px;
+        }
+        .btn-back {
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: #8d8888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scan QR Code</h1>
+        <div class="qr-code">
+            <img src="{{url_for('static',filename='images/barcode.jpg')}}" alt=" QR Code">
+
+        </div>
+        <a href="{{url_for('payment')}}" class="btn-back">Back to Payment</a>
+    </div>
+</body>
+</html>

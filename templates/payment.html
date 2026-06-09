@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav-logo"></div>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contacts') }}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>Payment Details</h1>
+        <!-- Updated form tag with enctype for file upload -->
+        <form id="paymentForm" data-url="{{ url_for('payment') }}" method="post" enctype="multipart/form-data">
+
+            <div class="user-details">
+                <h2>User Details</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address" required>
+
+                <label for="phone">Phone Number:</label>
+                <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    required
+                    pattern="\d{10}"
+                    title="Please enter a 10-digit phone number"
+                />
+            </div>
+
+            <h1>Order Your Food</h1>
+            <div id="foodSelection">
+                <label for="foodItem">Select Food Item:</label>
+                <select id="foodItem" name="foodItem">
+                    <option value="" disabled selected>Select a food item</option>
+                    <option value="tomato soup" data-price="120">Tomato soup - &#8377;120</option>
+                    <option value="veg soup" data-price="80">veg soup - &#8377;80</option>
+                    <option value="chicken soup" data-price="150">chicken soup - &#8377;150</option>
+                    <option value="special chicken biryani" data-price="200">special chicken biryani - &#8377;200</option>
+                    <option value="dum biryani" data-price="219">dum biryani - &#8377;219</option>
+                    <option value="Egg Biryani" data-price="120">Egg Biryani - &#8377;120</option>
+                    <option value="Mutton Biryani" data-price="260">Mutton Biryani - &#8377;260</option>
+                    <option value="prawns biryani" data-price="300">prawns biryani - &#8377;300</option>
+                    <option value="veg biryani" data-price="200">veg biryani - &#8377;200</option>
+                    <option value="paneer biryani" data-price="220">paneer biryani - &#8377;220</option>
+                    <option value="mushroom biryani" data-price="110">mushroom biryani - &#8377;110</option>
+                    <option value="chocolate straburry crumble" data-price="120">chocolate straburry crumble - &#8377;120</option>
+                    <option value="red velvet cake" data-price="160">red velvet cake - &#8377;160</option>
+                    <option value="gulab jamun" data-price="150">gulab jamun - &#8377;150</option>
+                    <option value="dragon chicken" data-price="300">dragon chicken - &#8377;300</option>
+                    <option value="paneer tikka" data-price="160">paneer tikka - &#8377;160</option>
+                    <option value="veg kabab" data-price="150">veg kabab - &#8377;150</option>   
+                </select>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                <button type="button" id="addToOrder">Add to Order</button>
+            </div>
+
+            <h2>Order Summary</h2>
+            <ul id="orderList"></ul>
+            <h3>Total Cost:&#8377;<span id="totalCost">0</span></h3>
+
+            <div class="payment-methods">
+                <h2>Select Payment Method</h2>
+                
+                <div class="payment-option">
+                    <input type="radio" id="barcodeOption" name="payment-method" value="QR Code Payment" required>
+                    <label for="barcodeOption" class="barcode-label">
+                        <div class="barcode-container">
+                            <img src="{{ url_for('static', filename='images/barcode.jpg') }}" alt="QR Code" class="barcode-image" width="400px" height="400px">
+                            <input type="text" id="barcodeText" name="barcodeText" placeholder="Enter your text here..." class="barcode-text">
+
+                            <!-- New File Upload Option -->
+                            <label for="barcodeUpload" class="upload-label">Upload screenshot here:</label>
+                            <input type="file" id="barcodeUpload" name="barcodeUpload" accept="image/*" class="barcode-upload">
+
+                            <!-- Optional: Image Preview -->
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img src="#" alt="Image Preview" class="preview-img">
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="cod" name="payment-method" value="Cash on Delivery" required>
+                    <label for="cod" class="cash-label">
+                        <img src="{{ url_for('static', filename='images/cash.jpg') }}" alt="Cash on Delivery" class="cash-image">
+                        <h3>Cash on Delivery</h3>
+                    </label>
+                </div>
+                
+            <button class="btn-submit" type="submit">Place Order</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+</body>
+</html>

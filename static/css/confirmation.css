@@ -1,0 +1,157 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('../images/gg.jpg');
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #000000e8;
+  animation: backgroundFade 10s infinite alternate; /* Background fade animation */
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.774);
+  color: #333;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.559);
+  animation: headerSlideIn 1s ease-out, headerPulse 3s infinite; /* Header slide-in and pulse animation */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: white;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-in-out, textGlow 1.5s infinite alternate; /* Added glow effect */
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: containerPulse 2s infinite alternate; /* Pulse animation for container */
+}
+
+.confirmation-message {
+  background-color: rgba(255, 255, 255, 0.738);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.984);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  animation: messageSlideIn 1s ease-in-out, textTypewriter 3s steps(30) 1s normal both; /* Slide-in and typewriter animation for message */
+}
+
+.confirmation-message h2 {
+  margin-bottom: 20px;
+  color: #000000;
+  font-size: 2em;
+}
+
+.confirmation-message p {
+  margin-bottom: 20px;
+  color: #000000;
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid rgba(0, 0, 0, 0.75);
+  animation: typewriter 3s steps(30, end), blink 0.75s step-end infinite; /* Typewriter effect and blink cursor */
+}
+
+.confirmation-message button {
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+  color: #443be0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+  font-size: 1em;
+  animation: buttonHoverEffect 0.5s ease-in-out, buttonPulse 2s infinite; /* Button hover effect and pulse */
+}
+
+.confirmation-message button:hover {
+  background: linear-gradient(45deg, #718bf0e1, #ff292984);
+  transform: scale(1.1) rotate(5deg); /* Increased scale and rotation on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+footer {
+  background-color: rgba(117, 223, 111, 0);
+  color: #333;
+  text-align: center;
+  padding: 10px 0;
+  animation: footerSlideUp 1s ease-out, footerFadeIn 1s ease-in; /* Footer slide-up and fade-in animation */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes backgroundFade {
+  from { background-color: rgba(238, 243, 241, 0.7); }
+  to { background-color: rgba(238, 243, 241, 1); }
+}
+
+@keyframes headerSlideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes headerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes containerPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes messageSlideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+  100% { text-shadow: 0 0 15px rgba(255, 255, 255, 1); }
+}
+
+@keyframes buttonHoverEffect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes buttonPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes footerFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes footerSlideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}

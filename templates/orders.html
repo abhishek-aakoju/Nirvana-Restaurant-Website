@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRVANA RESTAURANT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/orders.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <label class="logo">NIRVANA RESTAURANT</label>
+            <ul>
+                <li><a class="active" href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contacts') }}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="reservation-form">
+            <h2>Table Reservation</h2>
+            <form action="{{ url_for('reserve') }}" method="POST">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="datetime-local" name="booking_datetime" required>
+                <input type="number" name="number_of_people" placeholder="Number of People" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            
+             
+                <label>Select your food order(s):</label><br>
+                <input type="checkbox" id="dum_biryani" name="food_order" value="Dum Biryani">
+                <label for="dum_biryani">Dum Biryani</label><br>
+            
+                <input type="checkbox" id="fry_biryani" name="food_order" value="Fry Biryani">
+                <label for="fry_biryani">Fry Biryani</label><br>
+            
+                <input type="checkbox" id="lollipop_biryani" name="food_order" value="Lollipop Biryani">
+                <label for="lollipop_biryani">Lollipop Biryani</label><br>
+            
+                <input type="checkbox" id="chicken_soup" name="food_order" value="Chicken Soup">
+                <label for="chicken_soup">Chicken Soup</label><br>
+            
+                <button type="submit">Reserve</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+

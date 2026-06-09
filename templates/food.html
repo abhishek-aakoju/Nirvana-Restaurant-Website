@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/food.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <label class="logo">NIRVANA RESTRO</label>
+            <ul>
+                <li><a class="active" href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contacts') }}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="food-order-container">
+        <div class="food-image">
+            <img src="{{ url_for('static', filename='images/soup1.jpg') }}" alt="Food Image">
+        </div>
+        <div class="food-details">
+            <h2>Tomato Soup</h2> <!-- Adjusted the food name -->
+            <p>Tomato soup is a comforting dish with a smooth, tangy flavor, often made from tomatoes, onions, garlic, and broth. It can be creamy or chunky, and pairs wonderfully with grilled cheese sandwiches or crusty bread.</p>
+            <div class="price-container">
+                <p>Price: <span class="price">₹120</span></p>
+                <p>Tax (10%): <span class="tax">₹12</span></p>
+                <p>Total: <span class="total">₹132</span></p>
+            </div>
+            <!-- Updated the button to use a form for better integration with Flask -->
+            <form action="{{ url_for('payment') }}" method="get">
+                <button class="book-button" onclick="window.location.href='{{ url_for('payment') }}';">Book Now</button>
+                <button class="cancel-button" onclick="window.location.href='{{ url_for('home') }}';">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

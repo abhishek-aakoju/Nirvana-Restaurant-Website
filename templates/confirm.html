@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/confirmation.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Reservation Confirmed</h1>
+    </header>
+    <div class="container">
+        <div class="confirmation-message">
+            <h2>Thank You!</h2>
+            <p>Your table reservation has been confirmed. We look forward to serving you.</p>
+            <!-- Changed button to use Flask's url_for for the home route -->
+            <button onclick="window.location.href='{{ url_for('home') }}';">Back to Home</button>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Our Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>

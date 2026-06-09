@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form action="{{ url_for('admin_login') }}" method="POST">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            const button = document.querySelector('button');
+            button.classList.add('loading');
+            button.disabled = true; // Disable the button to prevent multiple submissions
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRVANA RESTAURANT</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/menu.css')}}">
+</head>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <label class="logo">NIRVANA RESTRO</label>
+            <ul>
+                <li><a class="active" href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('services')}}">Services</a></li>
+                <li><a href="{{url_for('menu')}}">Menu</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="{{url_for('contacts')}}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="menu">
+        <h1>Restaurant Menu</h1>
+
+        <h2>SOUPS</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <a href="{{url_for('food')}}">
+                    <img src="{{url_for('static',filename='images/soup1.jpg')}}" alt="Dish 1">
+                </a>
+                
+                <div class="item-details">
+                    <h2>Tomato Soup</h2>
+                    <p>Price: ₹120</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('vegsoup')}}">
+                <img src="{{url_for('static',filename='images/soup2.jpg')}}" alt="veg soup">
+                </a>
+                <div class="item-details">
+                    <h2>Veg Soup</h2>
+                    <p>Price: ₹80</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('chickensoup')}}">
+                <img src="{{ url_for('static',filename='images/soup3.jpg')}}" alt="Chicken Soup">
+                </a>
+                <div class="item-details">
+                    <h2>Chicken Soup</h2>
+                    <p>Price: ₹150</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Non-veg Biryani's</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <a href="{{url_for('specialChickenBiryani')}}">
+                <img src="{{ url_for('static',filename='images/special.jpg')}}" alt="Special Chicken Biryani">
+                </a>
+                <div class="item-details">
+                    <h2>Special Chicken Biryani</h2>
+                    <p>Price: ₹200</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('dum')}}">
+                <img src="{{url_for('static',filename='images/dum.jpg')}}" alt="Drink 2">
+                </a>
+                <div class="item-details">
+                    <h2>Dum Biryani</h2>
+                    <p>Price: ₹219</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{url_for('eggbiryani')}}">
+                <img src="{{url_for('static',filename='images/egg.jpg')}}" alt="Egg Biryani">
+                </a>
+                <div class="item-details">
+                    <h2>Egg Biryani</h2>
+                    <p>Price: ₹120</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('muttonBiryanii')}}">
+                <img src="{{url_for('static',filename='images/mutton.jpg')}}" alt="Mutton Biryani">
+                </a>
+                <div class="item-details">
+                    <h2>Mutton Biryani</h2>
+                    <p>Price: ₹260</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="{{ url_for('prawns')}}">
+                <img src="{{url_for('static',filename='images/prawns.jpg')}}" alt="Prawns Biryani">
+                </a>
+                <div class="item-details">
+                    <h2>Prawns Biryani</h2>
+                    <p>Price: ₹300</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+        </div>
+        <h2>Veg Biryani's</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <a href="{{url_for('vegBiryani')}}">
+                <img src="{{url_for('static',filename='images/veg.jpg')}}" alt="Veg Biryani">
+                </a>
+                <div class="item-details">
+                    <h2>Veg Biryani</h2>
+                    <p>Price: ₹200</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('paneer')}}">
+                <img src="{{url_for('static',filename='images/paneer.jpg')}}" alt="Paneer">
+                </a>
+                <div class="item-details">
+                    <h2>Paneer Biryani</h2>
+                    <p>Price: ₹220</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('mushroom')}}">
+                <img src="{{url_for('static',filename='images/mushroom.jpg')}}" alt="Mushroom">
+                </a>
+                <div class="item-details">
+                    <h2>Mushroom Biryani</h2>
+                    <p>Price: ₹110</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Desserts</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <a href="{{url_for('ChocolateStrawberryCrumble')}}">
+                <img src="{{url_for('static',filename='images/choco.jpg')}}" alt="Dessert 1">
+                </a>
+                <div class="item-details">
+                    <h2>Chocolate Strawberry-Crumble</h2>
+                    <p>Price: ₹150</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('RedVelVetCake')}}">
+                <img src="{{url_for('static',filename='images/cake.jpg')}}" alt="Dessert 2">
+                </a>
+                <div class="item-details">
+                    <h2>Red Velvet Cake</h2>
+                    <p>Price: ₹160</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('gulab')}}">
+                <img src="{{url_for('static',filename='images/gulab.jpg')}}" alt="Dessert 3">
+                </a>
+                <div class="item-details">
+                    <h2>Gulab Jamun</h2>
+                    <p>Price: ₹150</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Straters</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <a href="{{url_for('dragonChicken')}}">
+                <img src="{{url_for('static',filename='images/dragon.jpg')}}" alt="Dragon Chicken">
+                </a>
+                <div class="item-details">
+                    <h2>Dragon Chicken</h2>
+                    <p>Price: ₹300</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('PaneerTikka')}}">
+                <img src="{{url_for('static',filename='images/tikka.jpg')}}" alt="Biryani 2">
+                </a>
+                <div class="item-details">
+                    <h2>Paneer Tikka</h2>
+                    <p>Price: ₹160</p>
+                    <p>Rating: ⭐⭐⭐⭐☆</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="{{url_for('veg')}}">
+                <img src="{{url_for('static',filename='images/kabab.jpg')}}" alt="Kabab">
+                </a>
+                <div class="item-details">
+                    <h2>Veg Kabab</h2>
+                    <p>Price: ₹250</p>
+                    <p>Rating: ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>

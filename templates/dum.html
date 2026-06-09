@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Page</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/food.css')}}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <label class="logo">NIRVANA RESTRO</label>
+            <ul>
+                <li><a class="active" href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('services')}}">Services</a></li>
+                <li><a href="{{url_for('menu')}}">Menu</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="{{url_for('contacts')}}">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="food-order-container">
+        <div class="food-image">
+            <img src="{{url_for('static',filename='images/dum.jpg')}}" alt="Food Image">
+        </div>
+        <div class="food-details">
+            <h2>Special Chicken Biryani</h2>
+            <p>Chicken Dum Biryani is a flavorful and aromatic dish where marinated chicken is layered with fragrant basmati rice and slow-cooked to perfection. The blend of spices and herbs creates a rich and savory experience that delights the senses.</p>
+            <div class="price-container">
+                <p>Price: <span class="price">&#8377;219</span></p>
+                <p>Tax (10%): <span class="tax">&#8377;21</span></p>
+                <p>Total: <span class="total">&#8377;240</span></p>
+            </div>
+            <button class="book-button"  onclick="window.location.href='{{ url_for('payment') }}';">Book Now</button>
+            <button class="cancel-button" onclick="window.location.href='{{ url_for('home') }}';">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>

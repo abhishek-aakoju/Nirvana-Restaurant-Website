@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script>
+        // Function to confirm before clearing data
+        function confirmClear(action, collection) {
+            if (confirm(`Are you sure you want to clear all ${collection}? This action cannot be undone.`)) {
+                document.getElementById(action).submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Table Bookings Section -->
+        <div class="data-section">
+            <h2>Table Bookings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th> <!-- New Column -->
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Booking DateTime</th>
+                        <th>Number of People</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Food Orders</th>
+                        <th>Booking Time</th> <!-- New Column -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in tablebook %}
+                        <tr>
+                            <td>{{ booking.order_id }}</td> <!-- Display Order ID -->
+                            <td>{{ booking.first_name }}</td>
+                            <td>{{ booking.last_name }}</td>
+                            <td>{{ booking.booking_datetime }}</td>
+                            <td>{{ booking.number_of_people }}</td>
+                            <td>{{ booking.email }}</td>
+                            <td>{{ booking.phone }}</td>
+                            <td>{{ booking.food_orders | join(', ') }}</td>
+                            <td>{{ booking.booking_time }}</td> <!-- Display Booking Time -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button onclick="confirmClear('clear_tablebook_form', 'Table Bookings')">Clear Table Bookings</button>
+            <form id="clear_tablebook_form" action="{{ url_for('clear_tablebook') }}" method="POST" style="display: none;">
+                <!-- Hidden form for clearing table bookings -->
+            </form>
+        </div>
+
+        <!-- Contact Messages Section -->
+        <div class="data-section">
+            <h2>Contact Messages</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contacts %}
+                        <tr>
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td>{{ contact.subject }}</td>
+                            <td>{{ contact.message }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button onclick="confirmClear('clear_contacts_form', 'Contact Messages')">Clear Contact Messages</button>
+            <form id="clear_contacts_form" action="{{ url_for('clear_contacts') }}" method="POST" style="display: none;">
+                <!-- Hidden form for clearing contact messages -->
+            </form>
+        </div>
+
+        <!-- Orders Section -->
+        <div class="data-section">
+            <h2>Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th> <!-- Ensure this column exists -->
+                        <th>User Details</th>
+                        <th>Order Items</th>
+                        <th>Total Cost</th>
+                        <th>Payment Method</th>
+                        <th>Order Time</th> <!-- Ensure this column exists -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.order_id }}</td> <!-- Display Order ID -->
+                            <td>
+                                Name: {{ order.user_details.name }}<br>
+                                Email: {{ order.user_details.email }}
+                            </td>
+                            <td>{{ order.order_items | join(', ') }}</td>
+                            <td>{{ order.total_cost }}</td>
+                            <td>{{ order.payment_method }}</td>
+                            <td>{{ order.order_time }}</td> <!-- Display Order Time -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button onclick="confirmClear('clear_orders_form', 'Orders')">Clear Orders</button>
+            <form id="clear_orders_form" action="{{ url_for('clear_orders') }}" method="POST" style="display: none;">
+                <!-- Hidden form for clearing orders -->
+            </form>
+        </div>
+
+        <!-- Clear All Histories Section -->
+        <div class="data-section">
+            <h2>Clear All Histories</h2>
+            <button onclick="confirmClear('clear_all_form', 'All Histories')">Clear All Histories</button>
+            <form id="clear_all_form" action="{{ url_for('clear_all') }}" method="POST" style="display: none;">
+                <!-- Hidden form for clearing all histories -->
+            </form>
+        </div>
+
+        <!-- Logout Form -->
+        <form action="{{ url_for('admin_logout') }}" method="POST">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+</body>
+</html>
